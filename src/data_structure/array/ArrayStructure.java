@@ -22,6 +22,7 @@ public class ArrayStructure <T> implements ArrayStructureProtocol<T> {
     @Override
     public void createWithElements(T[] items) {
         this.array = items;
+        this.arraySize = items.length;
     }
 
     @Override
