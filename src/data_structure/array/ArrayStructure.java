@@ -8,6 +8,14 @@ public class ArrayStructure <T> implements ArrayStructureProtocol<T> {
     int arraySize;
     Class<T> tClass;
 
+    public T[] getArray() {
+        return array;
+    }
+
+    public int getArraySize() {
+        return arraySize;
+    }
+
     public ArrayStructure(Class<T> tClass) {
         this.tClass = tClass;
         this.arraySize = 0;
@@ -22,6 +30,7 @@ public class ArrayStructure <T> implements ArrayStructureProtocol<T> {
     @Override
     public void createWithElements(T[] items) {
         this.array = items;
+        this.arraySize = items.length;
     }
 
     @Override
@@ -73,11 +82,6 @@ public class ArrayStructure <T> implements ArrayStructureProtocol<T> {
 
     @Override
     public void deleteWithItem(T item) {
-
-    }
-
-    @Override
-    public void sort() {
 
     }
 

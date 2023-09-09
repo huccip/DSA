@@ -1,6 +1,6 @@
 package data_structure.array;
 
-public interface ArrayStructureProtocol <T> {
+public interface ArrayStructureProtocol<T> {
 
     void createWithSize(int size);
     void createWithElements(T[] items);
@@ -13,8 +13,6 @@ public interface ArrayStructureProtocol <T> {
     void deleteLast();
     void deleteWithPosition(int position);
     void deleteWithItem(T item);
-
-    void sort();
 
     T pop(); // delete and get last item
     T shift(); // delete and get first item
