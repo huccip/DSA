@@ -25,6 +25,7 @@ public class ArrayStructure <T> implements ArrayStructureProtocol<T> {
     @Override
     public void createWithSize(int size) {
         this.array = (T[]) Array.newInstance(this.tClass, size);
+        this.arraySize = size;
     }
 
     @Override
