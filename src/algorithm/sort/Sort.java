@@ -96,9 +96,73 @@ public class Sort implements SortProtocol<Integer> {
     }
 
     @Override
+    public void shellSort(Integer[] array, int arraySize) {
+
+        // start with a large gap and reduce it
+        int gap = arraySize / 2;
+
+        while (gap > 0) {
+
+            // perform insertion sort for the elements at gap intervals
+            for (int i = gap; i < arraySize; i++) {
+                int key = array[i];
+                int j = i;
+
+                // compare and move elements until the correct position is found
+                while (j >= gap && comparator.compare(array[j - gap], key) > 0) {
+                    array[j] = array[j - gap];
+                    j -= gap;
+                }
+
+                // place the current (key) element in its correct position
+                array[j] = key;
+            }
+
+            gap /= 2;
+        }
+
+    }
+
+    @Override
+    public void quickSort(Integer[] array, int lowerBound, int upperBound) {
+
+        if (lowerBound >= upperBound) return;
+
+        int pivot = array[upperBound];
+
+        int pivotIndex = partition(array, lowerBound, upperBound, pivot);
+
+        quickSort(array, lowerBound, pivotIndex - 1);
+        quickSort(array, pivotIndex + 1, upperBound);
+
+    }
+
+    @Override
     public void swap(Integer[] array, int index1, int index2) {
         int temp = array[index1];
         array[index1] = array[2];
         array[index2] = temp;
+    }
+
+    @Override
+    public int partition(Integer[] array, int lowerBound, int upperBound, Integer pivot) {
+        int lowerPointer = lowerBound - 1;
+        int upperPointer = upperBound;
+
+        while (true) {
+
+            while (array[++lowerPointer] < pivot);
+
+            while (upperPointer > 0 && array[--upperPointer] > pivot);
+
+            if (lowerPointer >= upperPointer) break;
+
+            swap(array, lowerPointer, upperPointer);
+
+        }
+
+        swap(array, lowerPointer, upperBound);
+
+        return lowerPointer;
     }
 }
