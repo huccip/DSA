@@ -1,0 +1,69 @@
+package leetcode.easy;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+/**
+ * <h1>Problem 2 | Linked List Cycle: <u>https://leetcode.com/problems/linked-list-cycle/description/</u></h1>
+ * <br>
+ * Given head, the head of a linked list, determine if the linked list has a cycle in it.
+ * There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+ * Return true if there is a cycle in the linked list. Otherwise, return false.
+ *
+ * <br><br>
+ *
+ * <h1>Constraints:</h1>
+ * <br>
+ * The number of the nodes in the list is in the range [0, 104].
+ * -105 <= Node.val <= 105
+ * pos is -1 or a valid index in the linked-list.
+ * <br><br>
+ * <h1>Follow up:</h1>
+ * <br>
+ * Can you solve it using O(1) (i.e. constant) memory?
+ *
+ * <br><br>
+ *
+ * <h1><u>Optimization:</u></h1>
+ * <br>
+ * This is a reference to Floyd’s Cycle-Finding Algorithm
+ * Basically you're having two pointers running checks on your Linked List regardless of how big it is so:
+ * <br>
+ * => Time is O(n)
+ * => Space is O(1)
+ */
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
+class P2Solution {
+    public boolean hasCycle(ListNode head) {
+        if (head == null) return false;
+        ListNode ptr1 = head;
+        ListNode ptr2 = head;
+        while (ptr2 != null && ptr2.next != null) {
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next.next;
+            if (ptr1 == ptr2) return true;
+        }
+        return false;
+    }
+}
+
+public class P2LinkedListCycle {
+    public static void main(String[] args) {
+        P2Solution solution = new P2Solution();
+
+        ListNode head = new ListNode(1);
+
+        System.out.println(solution.hasCycle(head));
+    }
+}
