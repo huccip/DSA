@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <h1>Problem 1 | Two Sum: <u>https://leetcode.com/problems/two-sum</u></h1>
+ * <h1><a href="https://leetcode.com/problems/two-sum" target="_blank">Problem 1 | Two Sum</a></h1>
  * <br>
  * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
