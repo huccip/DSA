@@ -16,8 +16,11 @@ package leetcode.easy;
  * <h1><u>Optimization:</u></h1>
  * <br>
  * Super simple, range and nums input arrays both have the same members except ONE that is within range.
+ * <br>
  * => I have thought "since range is already sorted out, how about sorting nums array then compare first with first, second with second, ...Etc which is O(n) time right? Well... Sorting algorithms are O(n²) yikes".
+ * <br>
  * => Which led me to think about the first statement again, then a sum of each array made total sense, difference of the two sums would filter the culprit out.
+ *
  */
 
 class P3Solution {

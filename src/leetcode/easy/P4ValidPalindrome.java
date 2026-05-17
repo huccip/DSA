@@ -17,7 +17,10 @@ package leetcode.easy;
  *
  * <h1><u>Optimization:</u></h1>
  * <br>
- * N/A
+ * => O(1) space: using a head/tail indexes method and
+ * <br>
+ * => O(n) time: looping only once over the input string, the inner whiles push the outer while to finish but the iterations number remains the same
+ *
  */
 
 class P4Solution {
