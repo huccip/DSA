@@ -1,7 +1,5 @@
 package leetcode.easy;
 
-import java.util.ArrayList;
-
 /**
  * <h1><a href="https://leetcode.com/problems/merge-two-sorted-lists/description" target="_blank">Problem 6 | Merge Two Sorted Lists</a></h1>
  * <br>
@@ -31,7 +29,7 @@ class P6Solution {
 
         if (list1.val < list2.val) {
             list1.next = mergeTwoLists(list1.next, list2);
-        } else  {
+        } else {
             list2.next = mergeTwoLists(list1, list2.next);
         }
 
